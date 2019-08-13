@@ -1,20 +1,20 @@
 CC = gcc
 RM = rm -rf
 
-CFLAGS = -W -Wall -Werror\
+CFLAGS =  \
 		 -I$(INCDIR)\
 
 LDLIBS =-lmlx\
 		-framework OpenGL\
 		-framework AppKit
-LDFLAGS	= 
+LDFLAGS	=
 
 INCDIR = ./
 SRCSDIR = 
 SRCS = main.c draw.c init.c graphics.c key_event.c julia.c tricorne.c mandelbrot.c\
-multimandelbrot2.c ship.c complex.c mouse_event.c
+multimandelbrot2.c ship.c complex.c mouse_event.c set_color.c
 OBJS = $(SRCS:.c=.o)
-TARGET = frctl
+TARGET = fractol
 
 .PHONY: all
 all: $(TARGET)

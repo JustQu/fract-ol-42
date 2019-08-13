@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 16:49:21 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/07 18:51:07 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/13 17:49:15 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_frctl	init_tricorne(void)
 								(t_complex){0.265, 0.1}, 2, 2, 64, 1.,
 								(t_vec2){400., 400.},
 								-2., 2, 0, 0, map_tricorne,
-								tricorne_current_value});
+								tricorne_current_value,
+								get_color});
 }

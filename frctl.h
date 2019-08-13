@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 19:58:59 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/07 19:16:32 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/13 17:42:36 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,55 @@
 # include "pthread.h"
 # include "stdlib.h"
 # include "stdio.h"
+# include "fcntl.h"
+# include "unistd.h"
+
+# define KEY_A 0
+# define KEY_B 11
+# define KEY_C 8
+# define KEY_D 2
+# define KEY_E 14
+# define KEY_F 3
+# define KEY_G 5
+# define KEY_H 4
+# define KEY_I 34
+# define KEY_J 38
+# define KEY_K 40
+# define KEY_L 37
+# define KEY_M 46
+# define KEY_N 45
+# define KEY_O 31
+# define KEY_P 35
+# define KEY_Q 12
+# define KEY_R 15
+# define KEY_S 1
+# define KEY_T 17
+# define KEY_U 32
+# define KEY_V 9
+# define KEY_W 13
+# define KEY_X 7
+# define KEY_Y 16
+# define KEY_Z 6
+# define KEY_ZERO 29
+# define KEY_ONE 18
+# define KEY_TWO 19
+# define KEY_THREE 20
+# define KEY_FOUR 21
+# define KEY_FIVE 23
+# define KEY_SIX 22
+# define KEY_SEVEN 26
+# define KEY_EIGHT 28
+# define KEY_NINE 25
+# define KEY_UP 126
+# define KEY_LEFT 123
+# define KEY_DOWN 125
+# define KEY_RIGHT 124
+# define KEY_PLUS 24
+# define KEY_MINUS 27
+# define KEY_MULTI 67
+# define KEY_SPACE 49
+# define KEY_ENTER 36
+# define KEY_ESC 53
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -39,6 +88,7 @@ typedef struct s_frctl	*t_frctl_ptr;
 typedef struct s_param	*t_param_ptr;
 typedef void	(*t_map)(t_frctl_ptr);
 typedef void	(*t_getval)(t_frctl_ptr, int, int);
+typedef int		(*t_getclr)(t_frctl_ptr , int);
 
 # define NFRCTLS 6
 
@@ -50,6 +100,12 @@ enum		e_fractal_type
 	tricorne,
 	multimandelbrot2,
 	None
+};
+
+enum		e_pallete
+{
+	smooth_grey = 1,
+	smooth_pink_grey
 };
 
 struct		s_complex
@@ -80,6 +136,7 @@ struct		s_frctl
 	double				ydy;
 	t_map				map;
 	t_getval			get_value;
+	t_getclr			get_color;
 };
 
 struct		s_image
@@ -125,6 +182,7 @@ struct		s_param
 
 void		put_pixel(t_image *img, int x, int y, int color);
 void		draw_fractal(t_param_ptr p);
+int			get_color(t_frctl_ptr f, int i);
 
 void		init_param(t_param_ptr p, t_fractal_type f);
 t_frctl		init_julia();

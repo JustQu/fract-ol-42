@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:39:20 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/07 18:50:54 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/13 17:35:23 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	mandelbrot_current_value(t_frctl_ptr f, int x, int y)
 
 t_frctl	init_mandelbrot(void)
 {
-	return ((t_frctl){julia, (t_complex){0., 0.},\
-								(t_complex){0.265, 0.1}, 1.5, 1.5, 200, 1.,\
+	return ((t_frctl){mandelbrot, (t_complex){0., 0.},\
+								(t_complex){0.265, 0.1}, 2, 2, 50, 1.,\
 								(t_vec2){400., 400.},\
-								-2., 1.5, 0, 0, map_mandelbrot,\
-								mandelbrot_current_value});
+								-2.5, 2, 0, 0, map_mandelbrot,\
+								mandelbrot_current_value, get_color});
 }

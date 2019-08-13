@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 20:24:52 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/07 18:50:02 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/13 17:49:05 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_frctl	init_ship(void)
 						(t_complex){0.265, 0.1},
 						1.5,
 						1.5,
-						64,
+						50,
 						1.,
 						(t_vec2){400., 400.},
 						-2.,
@@ -45,5 +45,6 @@ t_frctl	init_ship(void)
 						0,
 						0,
 						map_ship,
-						ship_current_value});
+						ship_current_value,
+						get_color});
 }
