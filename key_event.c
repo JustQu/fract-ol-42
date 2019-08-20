@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:41:59 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/20 14:54:11 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:46:56 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,11 @@ int		key_press(int keycode, void *param)
 	if (keycode == 27)
 	{
 		p->frctl.maxi += 10;
-		printf("%d\n", p->frctl.maxi);
-		while (++i < NTHREADS)
-			;
 		draw_fractal(p);
 	}
 	if (keycode == 24)
 	{
 		p->frctl.maxi -= 10;
-		while (++i < NTHREADS)
-			(p->thread_args + i)->frctl = p->frctl;
 		draw_fractal(p);
 	}
 	key_press1(keycode, p);

@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 20:00:15 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/20 13:49:17 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 16:47:05 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int				main(int ac, char **av)
 		usage(av);
 	if ((type = get_type(av[1])) == None)
 		usage(av);
-	printf("%d\n", type);
 	init_param(&param, type);
 	draw_fractal(&param);
 	mlx_hook(param.win_ptr, 6, 0, mouse_move, &param);
