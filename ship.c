@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 20:24:52 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/13 17:49:05 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:30:23 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ship_current_value(t_frctl_ptr f, int x, int y)
 
 t_frctl	init_ship(void)
 {
-	return ((t_frctl){julia,
+	return ((t_frctl){ship,
 						(t_complex){0., 0.},
 						(t_complex){0.265, 0.1},
 						1.5,

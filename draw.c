@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:42:42 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/13 17:34:46 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:50:36 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,6 @@
 /*
 ** TODO: more color options including smooth coloring
 */
-
-int		get_color1(t_frctl_ptr f, int i)
-{
-	float	t;
-	float	r;
-	float	g;
-	float	b;
-
-	if (i == f->maxi)
-		return (0);
-	t = i + 1+ log(log(10) / log((f->z.r * f->z.r + f->z.i * f->z.i)))/log(2);
-	r = sin(0.13 * t + 1.) * 100 + 100;
-	g = (sin(0.19 * t + 2) * 100 + 100);
-	b = sin(0.1 * t + 8) * 100 + 100;
-	return ((((int)(r) << 16) & 0x00ff0000) |
-			(((int)(g) << 8) & 0x0000ff00) |
-			((int)(b) & 0x000000ff));
-}
 
 void			*thread_draw(void *args)
 {
@@ -53,11 +35,11 @@ void			*thread_draw(void *args)
 		{
 			t->frctl.get_value(&t->frctl, x, y);
 			i = -1;
-			while (++i < t->frctl.maxi && t->frctl.z.r * t->frctl.z.r + t->frctl.z.i * t->frctl.z.i <
-					20)
+			while (++i < t->frctl.maxi && t->frctl.z.r * t->frctl.z.r
+										+ t->frctl.z.i * t->frctl.z.i < 10)
 				t->frctl.map(&t->frctl);
-			put_pixel(&t->pic, x, y - HEIGHT / NTHREADS * t->id +
-				(t->id == NTHREADS - 1 ? 0 : 1), t->frctl.get_color(&t->frctl, i));
+			put_pixel(&t->pic, x, y - HEIGHT / NTHREADS * t->id + (t->id
+				== NTHREADS - 1 ? 0 : 1), t->frctl.get_color(&t->frctl, i));
 		}
 		y++;
 	}
@@ -71,6 +53,7 @@ void			draw_fractal(t_param_ptr p)
 	i = -1;
 	while (++i < NTHREADS)
 	{
+		(p->thread_args + i)->frctl = p->frctl;
 		p->thread_args[i].id = i;
 		pthread_create(p->thread_id + i, NULL, thread_draw, p->thread_args + i);
 	}

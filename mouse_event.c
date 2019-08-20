@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 18:41:01 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/13 17:05:06 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:55:00 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	zoom_in(t_param_ptr p, int x, int y)
 	int	i;
 
 	i = -1;
-	p->frctl.zoom *= 1.05;
+	p->frctl.zoom *= 4;
 	if (p->cntrl.follow_zoom)
 	{
 		p->frctl.startx = p->frctl.startx + 2 * p->frctl.r1 * x
@@ -81,6 +81,8 @@ int		mouse_move(int x, int y, void *param)
 	int			i;
 
 	p = param;
+	if (p->frctl.type != julia)
+		return (1);
 	if (p->cntrl.follow_mouse == 0)
 		return (0);
 	i = -1;

@@ -12,7 +12,7 @@ LDFLAGS	=
 INCDIR = ./
 SRCSDIR = 
 SRCS = main.c draw.c init.c graphics.c key_event.c julia.c tricorne.c mandelbrot.c\
-multimandelbrot2.c ship.c complex.c mouse_event.c set_color.c
+multimandelbrot2.c ship.c complex.c mouse_event.c set_color.c set_palette.c
 OBJS = $(SRCS:.c=.o)
 TARGET = fractol
 

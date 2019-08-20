@@ -6,15 +6,13 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 20:00:15 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/13 17:48:21 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:49:17 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "frctl.h"
 
-//TODO: локализовать как то код инициализации
-
-size_t	ft_strlen(const char *s)
+size_t			ft_strlen(const char *s)
 {
 	const char *p;
 
@@ -24,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (p - s);
 }
 
-int		ft_strcmp(const char *s1, const char *s2)
+int				ft_strcmp(const char *s1, const char *s2)
 {
 	const unsigned char *p1;
 	const unsigned char *p2;
@@ -39,7 +37,7 @@ int		ft_strcmp(const char *s1, const char *s2)
 	return (*p1 - *p2);
 }
 
-void	usage(char **av)
+void			usage(char **av)
 {
 	write(2, "Usage: ", 8);
 	write(2, av[0], ft_strlen(av[0]));
@@ -64,7 +62,7 @@ t_fractal_type	get_type(char *s)
 	return (None);
 }
 
-int	main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_param			param;
 	t_fractal_type	type;

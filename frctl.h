@@ -6,7 +6,7 @@
 /*   By: dmelessa <dmelessa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 19:58:59 by dmelessa          #+#    #+#             */
-/*   Updated: 2019/08/13 17:42:36 by dmelessa         ###   ########.fr       */
+/*   Updated: 2019/08/20 13:23:38 by dmelessa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@
 # define KEY_SPACE 49
 # define KEY_ENTER 36
 # define KEY_ESC 53
+# define KEY_TAB 48
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -182,7 +183,14 @@ struct		s_param
 
 void		put_pixel(t_image *img, int x, int y, int color);
 void		draw_fractal(t_param_ptr p);
+
+void		set_palette(t_param_ptr p);
 int			get_color(t_frctl_ptr f, int i);
+int			get_color1(t_frctl_ptr f, int i);
+int			get_color2(t_frctl_ptr f, int i);
+int			get_color3(t_frctl_ptr f, int i);
+int			get_color4(t_frctl_ptr f, int i);
+int			get_color5(t_frctl_ptr f, int i);
 
 void		init_param(t_param_ptr p, t_fractal_type f);
 t_frctl		init_julia();
